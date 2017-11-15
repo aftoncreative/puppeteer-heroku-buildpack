@@ -103,14 +103,6 @@ export | grep -E -e ' (LD_LIBRARY_PATH|LIBRARY_PATH|INCLUDE_PATH|CPATH|CPPPATH|P
 
 topic "Rewrite package-config files"
 find $BUILD_DIR/.apt -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty -n 1 sed -i -e 's!^prefix=\(.*\)$!prefix='"$BUILD_DIR"'/.apt\1!g'
-apt-get install ttf-bitstream-vera
-# 1. Download the latest version
-wget https://github.com/eosrei/twemoji-color-font/releases/download/v1.3/TwitterColorEmoji-SVGinOT-Linux-1.3.tar.gz
-# 2. Uncompress the file
-tar zxf TwitterColorEmoji-SVGinOT-Linux-1.3.tar.gz
-# 3. Run the installer
-cd TwitterColorEmoji-SVGinOT-Linux-1.3
-./install.sh
 
 topic "Installing fonts"
 mkdir -p $BUILD_DIR/.fonts
